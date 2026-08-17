@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Simulador de desafios visuais para praticar a compreensão de Libras." />
+
+  <title>Desafio da Comunicação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-hands">🖐️🤚</span>
+
+        <strong>
+          DESAFIO DA<br />
+          <em>COMUNICAÇÃO</em>
+        </strong>
+
+        <small>Compreender é incluir.</small>
+      </div>
+
+        <nav class="main-navigation" aria-label="Navegação principal">
+
+          <p class="menu-title">DESAFIOS</p>
+
+          <div id="challenge-navigation"></div>
+        </nav>
+
+        <section class="help-card" aria-labelledby="help-title">
+          <h2 id="help-title">Como funciona?</h2>
+
+          <p>
+            Assista ao vídeo sem áudio e tente descobrir o que foi falado.
+          </p>
+
+          <p>
+            Monte a frase com as palavras disponíveis e envie sua resposta.
+          </p>
+
+          <p class="help-highlight">
+            Atenção, observação e foco são seus aliados!
+          </p>
+        </section>
+    </aside>
+
+    <main id="inicio" class="main-content">
+      <header class="page-header">
+        <div class="progress-area">
+          <p id="challenge-title">Desafio 1 de 5</p>
+
+          <div class="progress-track" role="progressbar" aria-label="Progresso nos desafios" aria-valuemin="0"
+            aria-valuemax="5" aria-valuenow="1">
+            <span id="progress-bar"></span>
+          </div>
+        </div>
+
+        <p class="score" aria-live="polite">
+          <strong id="score-value">0</strong> acertos
+        </p>
+      </header>
+
+      <div class="content-grid">
+        <section class="challenge-card" aria-labelledby="question-title">
+          <div class="video-area">
+            <!-- Adicionar quando gravarmos os vídeos -->
+          </div>
+
+          <h1 id="question-title">
+            O que você acha que foi falado?
+          </h1>
+
+          <div id="answer-zone" class="answer-zone" aria-live="polite">
+            <p>Clique nas palavras abaixo para montar a frase</p>
+          </div>
+
+          <div id="word-bank" class="word-bank" aria-label="Palavras disponíveis"></div>
+
+          <button id="submit-answer" class="primary-button" type="button" disabled>
+            Responder
+          </button>
+
+          <div id="feedback" class="feedback" aria-live="polite">
+            <div>
+              <strong>Responda para ver o resultado</strong>
+              <small>
+                Você verá a resposta correta após enviar sua tentativa.
+              </small>
+            </div>
+          </div>
+        </section>
+
+        <aside class="information-panel">
+          <section class="info-card">
+            <h2>SOBRE A COMUNIDADE SURDA</h2>
+
+            <p>
+              A Língua de Sinais é uma língua completa e fundamental para
+              a comunicação, expressão e participação plena das pessoas
+              surdas na sociedade.
+            </p>
+
+            <a href="https://www.gov.br/mdh/pt-br/navegue-por-temas/pessoa-com-deficiencia/acoes-e-programas/acessibilidade"
+              target="_blank" rel="noopener">
+              Saiba mais sobre acessibilidade
+            </a>
+          </section>
+
+          <section class="info-card colors-card">
+            <h2>CORES QUE REPRESENTAM</h2>
+
+            <div class="color-item">
+              <i class="light-blue"></i>
+              <p>
+                <strong>AZUL CLARO</strong><br />
+                Comunidade Surda e Língua de Sinais
+              </p>
+            </div>
+
+            <div class="color-item">
+              <i class="dark-blue"></i>
+              <p>
+                <strong>AZUL ESCURO</strong><br />
+                História, luta e identidade
+              </p>
+            </div>
+
+            <div class="color-item">
+              <i class="yellow"></i>
+              <p>
+                <strong>AMARELO</strong><br />
+                Luz, esperança e consciência
+              </p>
+            </div>
+          </section>
+
+          <blockquote>
+            “Acessibilidade não é apenas sobre espaço, é sobre comunicação,
+            respeito e inclusão.”
+          </blockquote>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/challenges.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

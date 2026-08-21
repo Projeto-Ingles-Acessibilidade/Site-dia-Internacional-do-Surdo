@@ -16,7 +16,9 @@ const elements = {
   answerZone: document.querySelector('#answer-zone'),
   wordBank: document.querySelector('#word-bank'),
   submit: document.querySelector('#submit-answer'),
-  feedback: document.querySelector('#feedback')
+  feedback: document.querySelector('#feedback'),
+  video: document.querySelector('#challenge-video'),
+  videoSource: document.querySelector('#challenge-video-source')
 };
 
 function currentChallenge() {
@@ -27,8 +29,7 @@ function renderNavigation() {
   elements.navigation.innerHTML = window.CHALLENGES
     .map((_, index) => {
       const isCurrent = index === state.currentChallenge;
-
-      const isLocked = index > state.unlockedChallenge;;
+      const isLocked = index > state.unlockedChallenge;
 
       return `
         <button
@@ -50,7 +51,6 @@ function renderAnswerZone() {
     elements.answerZone.innerHTML = `
       <p>Clique nas palavras abaixo para montar a frase</p>
     `;
-
     return;
   }
 
@@ -69,9 +69,7 @@ function renderAnswerZone() {
     })
     .join('');
 
-  elements.answerZone.innerHTML = `
-    ${selectedWordsHtml}
-  `;
+  elements.answerZone.innerHTML = selectedWordsHtml;
 }
 
 function renderWordBank() {
@@ -79,7 +77,6 @@ function renderWordBank() {
 
   state.selectedWords.forEach((word) => {
     const index = words.indexOf(word);
-
     if (index !== -1) {
       words.splice(index, 1);
     }
@@ -99,13 +96,13 @@ function renderWordBank() {
     })
     .join('');
 
-  elements.submit.disabled =
-    state.selectedWords.length !== currentChallenge().answer.length;
+  // ALTERAÇÃO AQUI: O botão só fica desativado se nenhuma palavra foi selecionada.
+  // Assim, o usuário pode tentar enviar mesmo com mais ou menos palavras.
+  elements.submit.disabled = state.selectedWords.length === 0;
 }
 
 function showDefaultFeedback() {
   elements.feedback.className = 'feedback';
-
   elements.feedback.innerHTML = `
     <div>
       <strong>Responda para ver o resultado</strong>
@@ -120,19 +117,19 @@ function renderChallenge() {
   const progress =
     ((state.currentChallenge + 1) / window.CHALLENGES.length) * 100;
 
-  elements.title.textContent =
-    `Desafio ${state.currentChallenge + 1}`;
-
+  elements.title.textContent = `Desafio ${state.currentChallenge + 1}`;
   elements.progress.style.width = `${progress}%`;
-
   elements.progressTrack.setAttribute(
     'aria-valuenow',
     state.currentChallenge + 1
   );
 
   elements.score.textContent = state.score;
-
   elements.question.textContent = currentChallenge().question;
+
+  elements.video.pause();
+  elements.videoSource.src = currentChallenge().video;
+  elements.video.load();
 
   renderAnswerZone();
   renderWordBank();
@@ -142,7 +139,6 @@ function renderChallenge() {
 
 function submitAnswer() {
   const challenge = currentChallenge();
-
   const isCorrect =
     state.selectedWords.join(' ') === challenge.answer.join(' ');
 
@@ -162,7 +158,6 @@ function submitAnswer() {
     }
 
     elements.feedback.className = 'feedback success';
-
     elements.feedback.innerHTML = `
       <div>
         <strong>Resposta correta!</strong>
@@ -173,14 +168,11 @@ function submitAnswer() {
     `;
 
     elements.score.textContent = state.score;
-
     renderNavigation();
-
     return;
   }
 
   elements.feedback.className = 'feedback error';
-
   elements.feedback.innerHTML = `
     <div>
       <strong>Não foi dessa vez. Tente novamente.</strong>
@@ -190,23 +182,18 @@ function submitAnswer() {
 
 document.addEventListener('click', (event) => {
   const wordButton = event.target.closest('[data-word]');
-
   const removeButton = event.target.closest('[data-remove-word]');
-
   const challengeButton = event.target.closest('[data-challenge]');
 
   if (wordButton) {
     state.selectedWords.push(wordButton.dataset.word);
-
     renderAnswerZone();
     renderWordBank();
   }
 
   if (removeButton) {
     const wordIndex = Number(removeButton.dataset.removeWord);
-
     state.selectedWords.splice(wordIndex, 1);
-
     renderAnswerZone();
     renderWordBank();
   }
@@ -215,9 +202,7 @@ document.addEventListener('click', (event) => {
     state.currentChallenge = Number(
       challengeButton.dataset.challenge
     );
-
     state.selectedWords = [];
-
     renderChallenge();
   }
 });

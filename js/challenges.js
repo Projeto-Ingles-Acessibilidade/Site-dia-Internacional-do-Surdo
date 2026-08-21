@@ -1,27 +1,73 @@
 window.CHALLENGES = [
   {
-    question: 'O que você acha que foi falado?',
-    answer: ['eu', 'gosto', 'muito', 'de', 'café', 'hoje'],
-    words: ['café', 'eu', 'hoje', 'muito', 'gosto', 'de']
+    question: 'O que foi falado no vídeo?',
+    video: 'videos/desafio-1.mp4',
+    answer: ['qual', 'é', 'o', 'seu', 'nome'],
+    words: ['nome', 'qual', 'seu', 'o', 'é']
   },
   {
-    question: 'Monte a frase apresentada no vídeo.',
-    answer: ['eu', 'quero', 'aprender', 'libras'],
-    words: ['libras', 'quero', 'eu', 'aprender']
+    question: 'O que foi falado no vídeo?',
+    video: 'videos/desafio-2.mp4',
+    answer: ['o', 'ônibus', 'para', 'o', 'centro', 'passa', 'aqui'],
+    words: [
+      'centro',
+      'aqui',
+      'o',
+      'passa',
+      'ônibus',
+      'para',
+      'o',
+      'perto',
+    ]
   },
   {
-    question: 'Qual foi a frase sinalizada?',
-    answer: ['bom', 'dia', 'para', 'você'],
-    words: ['você', 'para', 'dia', 'bom']
+    question: 'O que foi falado no vídeo?',
+    video: 'videos/desafio-3.mp4',
+    answer: ['onde', 'fica', 'a', 'farmácia', 'mais', 'próxima'],
+    words: [
+      'próxima',
+      'onde',
+      'farmácia',
+      'a',
+      'fica',
+      'mais',
+      'mercado',
+      'longe',
+    ]
   },
   {
-    question: 'Organize as palavras na ordem certa.',
-    answer: ['a', 'comunicação', 'inclui', 'todos'],
-    words: ['inclui', 'todos', 'a', 'comunicação']
+    question: 'O que foi falado no vídeo?',
+    video: 'videos/desafio-4.mp4',
+    answer: ['abre', 'um', 'pull', 'request', 'para', 'ajustar', 'o', 'commit'],
+    words: [
+      'commit',
+      'pull',
+      'abre',
+      'ajustar',
+      'o',
+      'request',
+      'para',
+      'um',
+      'branch',
+      'repositório',
+      'código',
+    ]
   },
   {
-    question: 'Complete o último desafio.',
-    answer: ['respeito', 'é', 'acessibilidade'],
-    words: ['acessibilidade', 'respeito', 'é']
+    question: 'O que foi falado no vídeo?',
+    video: 'videos/desafio-5.mp4',
+    answer: ['o', 'container', 'do', 'docker', 'caiu', 'em', 'produção'],
+    words: [
+      'produção',
+      'o',
+      'docker',
+      'caiu',
+      'container',
+      'em',
+      'do',
+      'servidor',
+      'deploy',
+      'erro',
+    ]
   }
 ];

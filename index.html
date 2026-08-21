@@ -33,28 +33,28 @@
         <small>Compreender é incluir.</small>
       </div>
 
-        <nav class="main-navigation" aria-label="Navegação principal">
+      <nav class="main-navigation" aria-label="Navegação principal">
 
-          <p class="menu-title">DESAFIOS</p>
+        <p class="menu-title">DESAFIOS</p>
 
-          <div id="challenge-navigation"></div>
-        </nav>
+        <div id="challenge-navigation"></div>
+      </nav>
 
-        <section class="help-card" aria-labelledby="help-title">
-          <h2 id="help-title">Como funciona?</h2>
+      <section class="help-card" aria-labelledby="help-title">
+        <h2 id="help-title">Como funciona?</h2>
 
-          <p>
-            Assista ao vídeo sem áudio e tente descobrir o que foi falado.
-          </p>
+        <p>
+          Assista ao vídeo sem áudio e tente descobrir o que foi falado.
+        </p>
 
-          <p>
-            Monte a frase com as palavras disponíveis e envie sua resposta.
-          </p>
+        <p>
+          Monte a frase com as palavras disponíveis e envie sua resposta.
+        </p>
 
-          <p class="help-highlight">
-            Atenção, observação e foco são seus aliados!
-          </p>
-        </section>
+        <p class="help-highlight">
+          Atenção, observação e foco são seus aliados!
+        </p>
+      </section>
     </aside>
 
     <main id="inicio" class="main-content">
@@ -75,8 +75,12 @@
 
       <div class="content-grid">
         <section class="challenge-card" aria-labelledby="question-title">
+          
           <div class="video-area">
-            <!-- Adicionar quando gravarmos os vídeos -->
+            <video id="challenge-video" controls muted playsinline>
+              <source id="challenge-video-source" src="" type="video/mp4" />
+
+            </video>
           </div>
 
           <h1 id="question-title">
